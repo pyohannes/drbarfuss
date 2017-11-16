@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form action="{% url 'confirm_login' %}" method="post">
+        {% csrf_token %}
+    
+        <h1>{{ txt_login }}</h1>
+    
+        <table class="datainput">
+            <tr>
+                <td><label for="username">{{ txt_username }}</label></td>
+                <td><input type="text" name="username" id="username"/></td>
+            </tr>
+            <tr>
+                <td><label for="password">{{ txt_passwd }}</label></td>
+                <td><input type="text" name="password" id="password"/></td>
+            </tr>
+        </table>
+    
+        <button type="submit" id="signin">{{ txt_login }}</button>
+    </form>
+
+{% endblock %}

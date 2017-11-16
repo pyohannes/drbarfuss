@@ -1,0 +1,25 @@
+<html>
+
+    {% load static %}
+    
+    <head>
+        <title>{{ txt_title }}</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/drbarfuss.css' %}"/>
+    </head>
+
+    <body>
+        <table class="header">
+            <tr>
+                <td><img height="80px" src="{% static 'images/drbarfuss_big.jpeg' %}"/></td>
+                <td class="login_info"></td>
+            </tr>
+        </table>
+
+        <div class="maincontent">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </body>
+
+</html>

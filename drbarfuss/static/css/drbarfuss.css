@@ -1,0 +1,69 @@
+body {
+    margin: 0 auto;
+    width: 80%;
+    font-family: sans-serif;
+}
+
+div.maincontent {
+    clear: both;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+div.overviewsection {
+    margin: 0 auto;
+    width: 90%;
+    text-align: left;
+}
+
+form {
+    display: inline-block;
+    padding: 5px;
+    text-align: left;
+}
+
+table.datainput {
+    padding-bottom: 20px;
+}
+
+button[type=submit] {
+    background: green;
+    color: white;
+    font-weight: bold;
+    border: 0 none;
+    border-radius: 5px;
+    padding: 10px 20px 10px 20px;
+    width: 200px;
+}
+
+table.header {
+    width: 100%;
+    border-bottom: solid;
+    margin-bottom: 10px;
+}
+
+td.login_info {
+    text-align: right;
+    vertical-align: bottom;
+}
+
+div.links {
+    text-align: center;
+    width: 100%;
+}
+
+p.link {
+    padding: 0px 20px 0px 20px;
+    display: inline;
+}
+
+a.header {
+    color: green;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a.header:hover {
+    border-bottom: 3px solid green;
+}
