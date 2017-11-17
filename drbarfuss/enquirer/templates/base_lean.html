@@ -1,0 +1,38 @@
+<html>
+
+    {% load static %}
+    
+    <head>
+        <title>{{ txt_title }}</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/drbarfuss.css' %}"/>
+    </head>
+
+    <body>
+        <table class="header">
+            <tr>
+                <td><img height="80px" src="{% static 'images/drbarfuss_big.jpeg' %}"/></td>
+                <td class="login_info">
+                    {% if request.user.is_authenticated %}
+                    {{ request.user.first_name }} {{ request.user.last_name }}
+                    <a href="{% url 'logout' %}">abmelden</a>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+
+        {% block mainlinks %}
+        {% endblock %}
+
+        <div class="maincontent">
+
+            {% if txt_error_msg %}
+                <p class="error">{{ txt_error_msg }}</p>
+            {% endif %}
+
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </body>
+
+</html>

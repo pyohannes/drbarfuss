@@ -1,25 +1,10 @@
-<html>
+{% extends "base_lean.html" %}
 
-    {% load static %}
-    
-    <head>
-        <title>{{ txt_title }}</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/drbarfuss.css' %}"/>
-    </head>
-
-    <body>
-        <table class="header">
-            <tr>
-                <td><img height="80px" src="{% static 'images/drbarfuss_big.jpeg' %}"/></td>
-                <td class="login_info"></td>
-            </tr>
-        </table>
-
-        <div class="maincontent">
-            {% block content %}
-            {% endblock %}
-        </div>
-
-    </body>
-
-</html>
+{% block mainlinks %}
+    <div class="links">
+        <p class="link"><a class="header" href="#start">Neuer Testlauf</a></p>
+        <p class="link"><a class="header" href="#overview">Auswertungen</a></p>
+        <p class="link"><a class="header" href="#open">Offene Testl&auml;ufe</a></p>
+        <p class="link"><a class="header" href="#invoice">Abrechnung</a></p>
+    </div>
+{% endblock %}

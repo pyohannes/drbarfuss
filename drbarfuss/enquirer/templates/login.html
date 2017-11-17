@@ -1,8 +1,8 @@
-{% extends "base.html" %}
+{% extends "base_lean.html" %}
 
 {% block content %}
 
-    <form action="{% url 'confirm_login' %}" method="post">
+    <form action="{{ request.get_full_path }}" method="post">
         {% csrf_token %}
     
         <h1>{{ txt_login }}</h1>
@@ -14,7 +14,7 @@
             </tr>
             <tr>
                 <td><label for="password">{{ txt_passwd }}</label></td>
-                <td><input type="text" name="password" id="password"/></td>
+                <td><input type="password" name="password" id="password"/></td>
             </tr>
         </table>
     

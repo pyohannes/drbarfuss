@@ -58,12 +58,24 @@ p.link {
     display: inline;
 }
 
+a {
+    color: green;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom: 3px solid green;
+}
+
 a.header {
     color: green;
     font-weight: bold;
     text-decoration: none;
 }
 
-a.header:hover {
-    border-bottom: 3px solid green;
+p.error {
+    text-align: center;
+    border: solid red;
+    color: red;
+    width: 100%;
 }
