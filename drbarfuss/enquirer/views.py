@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from .models import Test, Run
 
 
 def login(request):
@@ -10,7 +11,6 @@ def login(request):
     ctx = dict()
 
     if username or password:
-        print('###', username, password)
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
@@ -39,9 +39,26 @@ def overview(request):
 
     ctx = {
             'txt_title' : 'Dr. Barfuss Übersicht',
+            'tests' : Test.objects.all(),
+            'runs' : Run.objects.all(),
     }
 
     return render(request, 'overview.html', ctx)
 
 
+@login_required
+def order(request):
+    testid = request.POST['testid']
+    interviewee = request.POST['interviewee']
+    sex = request.POST['sex']
 
+    test = Test.objects.get(pk=testid)
+
+    run = Run(
+            user=request.user,
+            test=test, 
+            iv_id=interviewee,
+            iv_male=(sex == '1'))
+    run.save()
+
+    return overview(request)

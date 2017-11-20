@@ -79,3 +79,34 @@ p.error {
     color: red;
     width: 100%;
 }
+
+ul.testlist {
+    list-style-type: none;
+}
+
+p.testdesc {
+}
+
+form.testorder {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+
+table {
+    border-spacing: 0px;
+}
+
+th {
+    font-weight: bold;
+    text-align: left;
+    border-bottom: 1px solid green;
+    padding-right: 10px;
+}
+
+td {
+    padding-right: 10px;
+}

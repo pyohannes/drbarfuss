@@ -1,8 +1,67 @@
 {% extends "base.html" %}
-   
+
 {% block content %}
+
+    <script type="text/javascript">
+        function toggleElementVisibility(element_id) {
+            s = document.getElementById(element_id).style;
+            if (s.display == 'none') {
+                s.display = 'block';
+            } else {
+                s.display = 'none';
+            }
+        }
+    </script>
+
     <div class="overviewsection">
         <h1>Neuer Testlauf</h1>
+
+        <ul class="testlist">
+            {% for test in tests %}
+            <li> 
+                <a class="header" href="#" onclick="toggleElementVisibility('form_{{ test.module }}')">{{ test.name }}</a>
+
+                <br/>
+
+                <form class="testorder" id="form_{{ test.module }}" action="{% url 'order' %}" method="post">
+                    {% csrf_token %}
+
+                    <input class="hidden" type="text" name="testid" value="{{ test.id }}"/>
+
+                    <table class="datainput">
+                            <tr>
+                                <td><label for="interviewee">Teilnehmer-Identifikation</label></td>
+                                <td><input type="text" name="interviewee" id="interviewee"/></td>
+                            </tr>
+                        {% if test.needs_birth %}
+                            <tr>
+                                <td><label for="birth">Geburtsdatum des Teilnehmers</label></td>
+                                <td><input type="date" name="birth" id="birth"/></td>
+                            </tr>
+                        {% endif %}
+                        {% if test.needs_sex%}
+                            <tr>
+                                <td><label for="birth">Geschlecht des Teilnehmers</label></td>
+                                <td>
+                                    <select name="sex" id="sex">
+                                        <option value="1">m&auml;nnlich</option>
+                                        <option value="0">weiblich</option>
+                                    </select>
+                            </tr>
+                        {% endif %}
+                    </table>
+
+                    <button type="submit" id ="start_{{ test.module }}">Bestellen</button>
+
+                    <h4>Beschreibung</h4>
+                    <p class="testdesc">
+                        {{ test.description }}
+                    </p>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+
     </div>
 
     <div class="overviewsection">
@@ -11,9 +70,32 @@
 
     <div class="overviewsection">
         <h1>Offene Testl&auml;ufe</h1>
+
+        <ul class="testlist">
+            <table class="testordered">
+                    <tr>
+                        <th>Aktion</th>
+                        <th>Test</th>
+                        <th>Teilnehmer</th>
+                        <th>Datum</th>
+                    </tr>
+                {% for run in runs %}
+                    <tr>
+                        <td>
+                            <a href="#">Starten</a> |
+                            <a href="#">L&ouml;schen</a>
+                        </td>
+                        <td>{{ run.test.name }}</td>
+                        <td>{{ run.iv_id }}</td>
+                        <td>{{ run.issued }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </ul>
     </div>
 
     <div class="overviewsection">
         <h1>Abrechnung</h1>
     </div>
 {% endblock %}
+
