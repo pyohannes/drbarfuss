@@ -7,4 +7,5 @@ urlpatterns = [
         url(r'^logout$', views.logout, name='logout'),
         url(r'^overview$', views.overview, name='overview'),
         url(r'^order$', views.order, name='order'),
+        url(r'^deleterun/(?P<runid>\d+)$', views.deleterun, name='deleterun'),
 ]

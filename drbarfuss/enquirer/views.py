@@ -62,3 +62,10 @@ def order(request):
     run.save()
 
     return overview(request)
+
+
+@login_required
+def deleterun(request, runid):
+    run = Run.objects.get(id=runid)
+    run.delete()
+    return overview(request)

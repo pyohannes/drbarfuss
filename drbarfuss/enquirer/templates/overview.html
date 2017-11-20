@@ -83,7 +83,7 @@
                     <tr>
                         <td>
                             <a href="#">Starten</a> |
-                            <a href="#">L&ouml;schen</a>
+                            <a href="{% url 'deleterun' run.id %}">L&ouml;schen</a>
                         </td>
                         <td>{{ run.test.name }}</td>
                         <td>{{ run.iv_id }}</td>
