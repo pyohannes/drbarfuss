@@ -40,7 +40,7 @@ def overview(request):
     ctx = {
             'txt_title' : 'Dr. Barfuss Übersicht',
             'tests' : Test.objects.all(),
-            'runs' : Run.objects.all(),
+            'runs' : Run.objects.filter(user=request.user),
     }
 
     return render(request, 'overview.html', ctx)
