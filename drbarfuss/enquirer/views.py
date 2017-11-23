@@ -37,10 +37,20 @@ def logout(request):
 @login_required
 def overview(request):
 
+    runs_open = []
+    runs_finished = []
+
+    for run in Run.objects.filter(user=request.user):
+        if run.finished:
+            runs_finished.append(run)
+        else:
+            runs_open.append(run)
+
     ctx = {
             'txt_title' : 'Dr. Barfuss Übersicht',
             'tests' : Test.objects.all(),
-            'runs' : Run.objects.filter(user=request.user),
+            'runs_open' : runs_open,
+            'runs_finished' : runs_finished,
     }
 
     return render(request, 'overview.html', ctx)

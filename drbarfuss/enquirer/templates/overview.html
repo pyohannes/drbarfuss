@@ -66,6 +66,28 @@
 
     <div class="overviewsection">
         <h1>Auswertungen</h1>
+
+        <ul class="testlist">
+            <table class="testordered">
+                    <tr>
+                        <th>Aktion</th>
+                        <th>Test</th>
+                        <th>Teilnehmer</th>
+                        <th>Durchgef&uuml;hrt am</th>
+                    </tr>
+                {% for run in runs_finished %}
+                    <tr>
+                        <td>
+                            <a target="_blank" href="{% url 'ask' run.key 0 %}">Ansehen</a> |
+                            <a href="{% url 'deleterun' run.id %}">L&ouml;schen</a>
+                        </td>
+                        <td>{{ run.test.name }}</td>
+                        <td>{{ run.iv_id }}</td>
+                        <td>{{ run.finished }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </ul>
     </div>
 
     <div class="overviewsection">
@@ -79,10 +101,10 @@
                         <th>Teilnehmer</th>
                         <th>Datum</th>
                     </tr>
-                {% for run in runs %}
+                {% for run in runs_open %}
                     <tr>
                         <td>
-                            <a href="#">Starten</a> |
+                            <a target="_blank" href="{% url 'ask' run.key 0 %}">Starten</a> |
                             <a href="{% url 'deleterun' run.id %}">L&ouml;schen</a>
                         </td>
                         <td>{{ run.test.name }}</td>
