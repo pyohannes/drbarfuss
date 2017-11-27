@@ -1,0 +1,42 @@
+@import 'drbarfuss.css';
+
+button[type=submit] {
+    font-size: 100%;
+}
+
+body {
+    margin: 0 auto;
+    font-size: 160%;
+    width: 80%;
+}
+
+p.line{
+    line-height: 100%;
+    text-align: center;
+}
+
+p.count{
+    text-align: right;
+}
+
+.outer-container {
+    top: 50%;
+    transform: translate(0, 50%);
+}
+
+div.progress {
+    background-color: lightgreen;
+    height: 10px;
+}
+
+div.question {
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+    text-align: center;
+}
+
+
+.button {
+    font-size: 100%;
+}

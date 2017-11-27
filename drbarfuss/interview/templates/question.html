@@ -1,0 +1,42 @@
+<html>
+
+    {% load static %}
+
+    <head>
+        <title>{{ run.form.name }}</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/drbarfuss_interview.css' %}"/>
+
+        <script type="text/javascript">
+            function selectAnswer() {
+                document.getElementById('confirm').disabled = false;
+                document.getElementById('confirm').style.background = 'green';
+            } 
+        </script>
+    </head>
+
+    <body>
+        <div class="outer-container">
+
+        <p class="count">{{ question_position }}</p>
+        <div class="progress" style="width: {{ progress }}%"></div>
+        <div class="question">
+            <p class="line">{{ question|linebreaks }}</p>
+            <form action="{% url 'ask' run.key question_next %}" method="post">
+                {% csrf_token %}
+
+                <p class="line">
+                {% for choice in choices %}
+                    <input onchange="selectAnswer()" type="radio" name="choice" id="choice{{choice.index}}" value="{{ choice.index }}"/> 
+                    <label for="choice{{choice.index}}">{{ choice.text }}</label>
+                {% endfor %}
+                </p>
+
+                <p class="line">
+                    <button style="background: grey;" disabled="true" type="submit" id ="confirm">Weiter</button>
+                </p>
+            </form>
+        </div>
+
+        </div>
+    </body>
+</html>

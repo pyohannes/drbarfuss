@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'enquirer.apps.EnquirerConfig',
+    'interview.apps.InterviewConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -64,7 +64,7 @@ a {
 }
 
 a:hover {
-    border-bottom: 3px solid green;
+    border-bottom: 1px solid green;
 }
 
 a.header {
