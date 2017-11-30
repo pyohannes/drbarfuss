@@ -4,6 +4,12 @@ body {
     font-family: sans-serif;
 }
 
+div.evaluation {
+    margin: 0 auto;
+    width: 90%;
+    text-align: left;
+}
+
 div.maincontent {
     clear: both;
     width: 100%;
@@ -109,4 +115,20 @@ th {
 
 td {
     padding-right: 10px;
+}
+
+table.evaluation {
+    border: 1px solid black;
+}
+
+table.evaluation th {
+    border: 1px solid black;
+    text-align: center;
+    font-weight: bold;
+}
+
+table.evaluation td {
+    border: 1px solid black;
+    text-align: center;
+    font-weight: bold;
 }

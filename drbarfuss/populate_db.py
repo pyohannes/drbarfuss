@@ -24,12 +24,12 @@ subprocess.call(['python3', 'manage.py', 'migrate', 'enquirer', '0001'])
 
 
 # Make users
-p = subprocess.Popen(['python3', 'manage.py', 'shell' ], stdin=subprocess.PIPE)
-p.stdin.write("""
-from django.contrib.auth.models import User
-user = User.objects.create(username="johannes.tax@gmx.at", password="johannes", first_name="Johannes", last_name="Tax")
-""".encode('utf-8'))
-p.communicate()
+#p = subprocess.Popen(['python3', 'manage.py', 'shell' ], stdin=subprocess.PIPE)
+#p.stdin.write("""
+#from django.contrib.auth.models import User
+#user = User.objects.create(username="johannes.tax@gmx.at", password="johannes", first_name="Johannes", last_name="Tax")
+#""".encode('utf-8'))
+#p.communicate()
 
 
 # Add tests

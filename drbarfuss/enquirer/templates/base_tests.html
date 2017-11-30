@@ -1,0 +1,49 @@
+{% extends "base_lean.html" %}
+
+{% block content %}
+
+    <div class="evaluation">
+        <h1>{{ txt_title }}</h1>
+
+        <h2>Allgemeine Daten</h2>
+
+        <table>
+            <tr>
+                <td>Identifikation</td>
+                <td>{{ run.iv_id }}</td>
+            </tr>
+            {% if run.test.needs_sex %}
+                <tr>
+                    <td>Geschlecht</td>
+                    <td>
+                        {% if run.iv_male %}
+                            männlich
+                        {% else %}
+                            weiblich
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endif %}
+            {% if run.test.needs_birth %}
+                <tr>
+                    <td>Geburtsdatum</td>
+                    <td>{{ run.iv_birth }}</td> 
+                </tr>
+            {% endif %}
+            <tr>
+                <td>Bestellt am</td>
+                <td>{{ run.issued }}</td>
+            </tr>
+            <tr>
+                <td>Durchgeführt am</td>
+                <td>{{ run.finished }}</td>
+            </tr>
+        </table>
+
+        <h2>Ergebnis</h2>
+
+        {% block result %}
+        {% endblock %}
+    </div>
+
+{% endblock %}

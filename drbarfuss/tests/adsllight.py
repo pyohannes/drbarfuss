@@ -1,3 +1,5 @@
+from django.shortcuts import render
+
 import enquirer.models
 from ._simpletest import SimpleTest
 
@@ -34,3 +36,11 @@ class Test(SimpleTest):
                 needs_sex=True,
                 needs_birth=False)
         t.save()
+
+    def evaluate(self, request, run):
+        ctx = {
+            'run' : run, 
+            'txt_title' : 'Auswertung %s' % run.test.name,
+        }
+
+        return render(request, '%s.html' % run.test.module, ctx)

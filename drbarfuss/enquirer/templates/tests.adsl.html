@@ -1,0 +1,44 @@
+{% extends "base_tests.html" %}
+
+{% block result %}
+    <h3>Zusammenfassung</h3>
+
+    <table class="evaluation">
+        <tr>
+            <th>Rohwert</th>
+            <th>Prozentrang Gesamt</th>
+            <th>Prozentrang 
+                {% if run.iv_male %} 
+                    M&auml;nner 
+                {% else %}
+                    Frauen
+                {% endif %}
+            </th>
+        </tr>
+        <tr>
+            <td>{{ txt_rawvalue }}</td>
+            <td>{{ txt_rankvalue }}</td>
+            <td>{{ txt_ranksexvalue }}</td>
+        </tr>
+    </table>
+
+    <p>
+    Prozentrang f&uuml;r die ADS-L, Normtabelle f&uuml;r Erwachsene mit
+    Stichprobengr&ouml;&szlig;e N=2005 (Frauen N=1002, M&auml;nner=904),
+    Altersbereich 18 bis 91 Jahre.
+    </p>
+
+
+    <h3>Antworten</h3>
+
+    <p>{{ txt_prefix }}</p>
+
+    <table>
+        {% for q in questions %}
+            <tr>
+                <td>{{ q.txt_question }}</td>
+                <td>{{ q.txt_answer }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

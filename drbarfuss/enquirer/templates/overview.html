@@ -78,7 +78,7 @@
                 {% for run in runs_finished %}
                     <tr>
                         <td>
-                            <a target="_blank" href="{% url 'ask' run.key 0 %}">Ansehen</a> |
+                            <a target="_blank" href="{% url 'evaluate' run.key %}">Ansehen</a> |
                             <a href="{% url 'deleterun' run.id %}">L&ouml;schen</a>
                         </td>
                         <td>{{ run.test.name }}</td>
