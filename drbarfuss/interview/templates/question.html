@@ -26,8 +26,11 @@
 
                 <p class="line">
                 {% for choice in choices %}
-                    <input onchange="selectAnswer()" type="radio" name="choice" id="choice{{choice.index}}" value="{{ choice.index }}"/> 
-                    <label for="choice{{choice.index}}">{{ choice.text }}</label>
+                    <label class="answer">
+                        {{ choice.text }}
+                        <input onchange="selectAnswer()" type="radio" name="choice" id="choice{{choice.index}}" value="{{ choice.index }}"/> 
+                        <span class="checkmark"/>
+                    </label>
                 {% endfor %}
                 </p>
 

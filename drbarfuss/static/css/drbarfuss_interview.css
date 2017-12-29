@@ -40,3 +40,61 @@ div.question {
 .button {
     font-size: 100%;
 }
+
+/* The container for the radio button and label */
+.answer {
+    position: relative;
+    padding-left: 2.2em;
+    padding-right: 1em;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+/* Hide the default radio button */
+.answer input {
+    opacity: 0;
+    position: absolute;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: -0.5em;
+    left: 0;
+    height: 2em;
+    width: 2em;
+    background-color: grey;
+    border-radius: 50%;
+}
+
+/* Add background on hover */
+.answer:hover input ~ .checkmark {
+    background-color: green;
+}
+
+/* Change background color when checked */
+.answer input:checked ~ .checkmark {
+    background-color: green;
+}
+
+/* Create the indicator */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator when checked */
+.answer input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator */
+.answer .checkmark:after {
+    top: 0.5em;
+    left: 0.5em;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background: white;
+}
